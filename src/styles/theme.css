@@ -1,0 +1,340 @@
+/* AeroSphere — Editorial Aviation Design System */
+/* Palette: Deep Aviation Navy (#172D46), Warm Ivory (#F5F3EE), Muted Teal (#39796B), Warm Brass (#B98245) */
+
+:root {
+  /* Surface & Canvas Colors */
+  --bg-canvas: #F5F3EE;
+  --bg-surface: #FFFFFF;
+  --bg-surface-warm: #FAF9F5;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-navy-header: #172D46;
+  --bg-navy-dark: #0F1D2E;
+
+  /* Primary Brand & Accent Colors */
+  --brand-navy: #172D46;
+  --brand-navy-light: #234368;
+  --brand-teal: #39796B;
+  --brand-teal-light: rgba(57, 121, 107, 0.12);
+  --brand-brass: #B98245;
+  --brand-brass-light: rgba(185, 130, 69, 0.12);
+  --brand-brass-hover: #A37138;
+
+  /* Legacy variable compatibility mappings */
+  --bg-space: #F5F3EE;
+  --bg-deep: #FAF9F5;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAF9F5;
+  --bg-glass: #FFFFFF;
+  --bg-glass-subtle: #FAF9F5;
+  --accent-cyan: #39796B;
+  --accent-blue: #172D46;
+  --accent-glow: rgba(23, 45, 70, 0.08);
+
+  /* Status & Risk Badges */
+  --status-emerald: #39796B;
+  --status-emerald-bg: rgba(57, 121, 107, 0.12);
+  --status-amber: #B98245;
+  --status-amber-bg: rgba(185, 130, 69, 0.12);
+  --status-red: #C0392B;
+  --status-red-bg: rgba(192, 57, 43, 0.1);
+
+  /* Typography Colors (High contrast, WCAG compliant) */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+  --text-cyan: #172D46;
+
+  /* Borders & Dividers */
+  --border-subtle: #E2DDD5;
+  --border-card: #E5E0D8;
+  --border-navy: #172D46;
+  --border-cyan: #39796B;
+  --border-brass: #B98245;
+
+  /* Restrained, Authentic Shadows */
+  --shadow-sm: 0 1px 2px rgba(23, 45, 70, 0.05);
+  --shadow-card: 0 2px 8px rgba(23, 45, 70, 0.06), 0 1px 2px rgba(23, 45, 70, 0.04);
+  --shadow-card-hover: 0 6px 18px rgba(23, 45, 70, 0.09), 0 2px 4px rgba(23, 45, 70, 0.04);
+  --shadow-hud: 0 4px 16px rgba(23, 45, 70, 0.08);
+  --shadow-glow: none;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Transition */
+  --ease-smooth: all 0.2s ease-in-out;
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Authentic warm surface containers */
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.glass-panel-subtle {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+}
+
+.glass-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--ease-smooth);
+}
+
+.glass-card:hover {
+  background: #FFFFFF;
+  border-color: #D1C9BE;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brand-navy);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  padding: 10px 20px;
+  border: 1px solid var(--brand-navy);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(23, 45, 70, 0.15);
+  transition: var(--ease-smooth);
+}
+
+.btn-primary:hover {
+  background: var(--brand-navy-light);
+  border-color: var(--brand-navy-light);
+  box-shadow: 0 4px 12px rgba(23, 45, 70, 0.22);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: var(--brand-navy);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--ease-smooth);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-warm);
+  border-color: #C8C1B4;
+}
+
+.btn-outline-cyan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: var(--brand-navy);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--ease-smooth);
+}
+
+.btn-outline-cyan:hover {
+  background: var(--bg-surface-warm);
+  border-color: var(--brand-navy);
+  color: var(--brand-navy);
+}
+
+/* Badges & Tags */
+.badge-low-risk {
+  background: var(--status-emerald-bg);
+  color: var(--status-emerald);
+  border: 1px solid rgba(57, 121, 107, 0.3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-mod-risk {
+  background: var(--status-amber-bg);
+  color: var(--status-amber);
+  border: 1px solid rgba(185, 130, 69, 0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-high-risk {
+  background: var(--status-red-bg);
+  color: var(--status-red);
+  border: 1px solid rgba(192, 57, 43, 0.3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-tag {
+  background: var(--bg-surface-warm);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Form Inputs */
+.aerosphere-input, .aerosphere-select {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #D5CEBF;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  transition: var(--ease-smooth);
+}
+
+.aerosphere-input:focus, .aerosphere-select:focus {
+  border-color: var(--brand-navy);
+  box-shadow: 0 0 0 3px rgba(23, 45, 70, 0.08);
+}
+
+/* Monospace telemetry texts */
+.font-telemetry {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Flight Path Line Connector */
+.flight-line-connector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.flight-line-connector::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #CBD5E1;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDE8DF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5BCAD;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9E9382;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .search-grid-responsive {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  .flight-list-layout-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .analytics-charts-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .delay-intel-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .flight-card-inner-grid {
+    grid-template-columns: 1fr !important;
+    text-align: left !important;
+  }
+
+  .diagnostic-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nav-tabs-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+}

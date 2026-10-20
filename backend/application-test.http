@@ -1,0 +1,52 @@
+### AeroSphere REST API Integration Tests
+
+### 1. Health Probe
+GET http://localhost:8080/api/health
+Accept: application/json
+
+### 2. Search Domestic Indian Flights (DEL to BOM)
+GET http://localhost:8080/api/flights/search?origin=DEL&destination=BOM&date=2026-10-25&cabin=Economy
+Accept: application/json
+
+### 3. Search Route BLR to DEL
+GET http://localhost:8080/api/flights/search?origin=BLR&destination=DEL&date=2026-10-25
+Accept: application/json
+
+### 4. Explainable Delay Risk Prediction (Heuristic Evaluation)
+POST http://localhost:8080/api/delay/predict
+Content-Type: application/json
+
+{
+  "origin": "DEL",
+  "destination": "BOM",
+  "departureTime": "19:30",
+  "stops": 0,
+  "airline": "SpiceJet",
+  "aircraft": "Boeing 737-800"
+}
+
+### 5. Analytics Summary
+GET http://localhost:8080/api/analytics/summary
+Accept: application/json
+
+### 6. Secured Trips (Without Token -> Expect 401 / 403)
+GET http://localhost:8080/api/trips
+Accept: application/json
+
+### 7. Secured Trips (With Firebase Bearer Token or Demo Token)
+GET http://localhost:8080/api/trips
+Authorization: Bearer demo-rahul-sharma
+Accept: application/json
+
+### 8. Create Trip Itinerary (Secured)
+POST http://localhost:8080/api/trips
+Authorization: Bearer demo-rahul-sharma
+Content-Type: application/json
+
+{
+  "flightId": "AS-DEL-BOM-6E2041",
+  "travelDate": "2026-10-25",
+  "passengers": 1,
+  "cabinClass": "Economy",
+  "seat": "14B"
+}

@@ -1,0 +1,25 @@
+/* AeroSphere Application Custom Component Styles */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseBorder {
+  0%, 100% {
+    border-color: rgba(0, 210, 255, 0.3);
+  }
+  50% {
+    border-color: rgba(0, 210, 255, 0.8);
+  }
+}
+
+.pulse-border-accent {
+  animation: pulseBorder 2.5s infinite;
+}

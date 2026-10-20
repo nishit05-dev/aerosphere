@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aerosphere-backend
+
+# AeroSphere Platform Backend Configurations
+aerosphere:
+  cors:
+    allowed-origins:
+      - "http://localhost:5173"
+      - "http://localhost:3000"
+      - "http://127.0.0.1:5173"
+  firebase:
+    # Path to server-side Service Account Key JSON.
+    # Set via environment variable: FIREBASE_CREDENTIALS_PATH=/path/to/serviceAccountKey.json
+    # If file is not present, backend automatically enters Secure Demo Mock Auth Mode.
+    credentials-path: ${FIREBASE_CREDENTIALS_PATH:}
+    mock-auth-enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.aerosphere: DEBUG
+    org.springframework.security: INFO
