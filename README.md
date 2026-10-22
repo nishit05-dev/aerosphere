@@ -124,7 +124,7 @@ npm run build
 ### 2. Backend (Kotlin + Spring Boot)
 ```bash
 cd backend
-gradle bootRun
+.\gradlew.bat bootRun
 ```
 *Note: The React frontend operates seamlessly even without starting the Spring Boot server by using its built-in intelligent simulated engine.*
 
